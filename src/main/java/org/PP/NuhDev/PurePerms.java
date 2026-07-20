@@ -119,7 +119,7 @@ public class PurePerms extends PluginBase {
     }
 
     private void registerCommands() {
-        CommandMap commandMap = this.getServer().getCommandMap();
+        SimpleCommandMap commandMap = this.getServer().getCommandMap();
 
         if (this.getNoeulAPI().isNoeulEnabled()) {
             commandMap.register("pureperms", new PPSudo(this, "ppsudo", this.getMessage("cmds.ppsudo.desc") + " #64FF00"));
