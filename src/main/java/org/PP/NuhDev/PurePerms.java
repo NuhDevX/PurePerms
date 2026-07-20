@@ -338,10 +338,10 @@ public class PurePerms extends PluginBase {
         return this.getServer().getOfflinePlayer(userName);
     }
 
-    public List<Permission> getPocketMinePerms() {
+    public List<Permission> getPNXPerms() {
         if (this.pmDefaultPerms.isEmpty()) {
             for (Permission permission : Server.getInstance().getPluginManager().getPermissions().values()) {
-                if (permission.getName().contains("nukkit.command") || permission.getName().contains("nukkit.broadcast")) {
+                if (permission.getName().contains("powernukkitx.command") || permission.getName().contains("powernukkitx.broadcast")) {
                     this.pmDefaultPerms.add(permission);
                 }
             }
