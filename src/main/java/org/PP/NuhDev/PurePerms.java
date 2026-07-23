@@ -61,13 +61,6 @@ public class PurePerms extends PluginBase {
         this.messages = new PPMessages(this);
         this.noeulAPI = new NoeulAPI(this);
         this.userDataMgr = new UserDataManager(this);
-
-        if (!this.getConfig().getBoolean("enable-multiworld-perms", false)) {
-            this.getLogger().notice(this.getMessage("logger_messages.onLoad_01"));
-            this.getLogger().notice(this.getMessage("logger_messages.onLoad_02"));
-        } else {
-            this.getLogger().notice(this.getMessage("logger_messages.onLoad_03"));
-        }
     }
 
     @Override
@@ -98,9 +91,6 @@ public class PurePerms extends PluginBase {
         }
         if (!config.exists("disable-op")) {
             config.set("disable-op", true); changed = true;
-        }
-        if (!config.exists("enable-multiworld-perms")) {
-            config.set("enable-multiworld-perms", false); changed = true;
         }
         if (!config.exists("enable-noeul-sixtyfour")) {
             config.set("enable-noeul-sixtyfour", false); changed = true;
@@ -437,13 +427,6 @@ public class PurePerms extends PluginBase {
     public void sortGroupData() {
         for (PPGroup ppGroup : this.groups.values()) {
             ppGroup.sortPermissions();
-
-            if (this.getConfig().getBoolean("enable-multiworld-perms", false)) {
-                for (Level level : this.getServer().getLevels().values()) {
-                    String levelName = level.getFolderName();
-                    ppGroup.createWorldData(levelName);
-                }
-            }
         }
     }
 
@@ -470,11 +453,7 @@ public class PurePerms extends PluginBase {
         if (player instanceof Player) {
             Player p = (Player) player;
 
-            if (!this.getConfig().getBoolean("enable-multiworld-perms", false)) {
-                levelName = null;
-            } else if (levelName == null) {
-                levelName = p.getLevel().getFolderName();
-            }
+            String levelName = p.getLevel().getFolderName();
 
             Map<String, Boolean> permissions = new HashMap<>();
 
