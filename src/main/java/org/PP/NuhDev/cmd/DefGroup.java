@@ -27,7 +27,7 @@ public class DefGroup extends Command implements PluginIdentifiableCommand {
         }
 
         if (args.length == 0 || args.length > 2) {
-            sender.sendMessage(TextFormat.GREEN.toString() + PurePerms.MAIN_PREFIX + " " +
+            sender.sendMessage(TextFormat.GREEN + PurePerms.MAIN_PREFIX + " " +
                 this.plugin.getMessage("cmds.defgroup.usage"));
             return true;
         }
@@ -35,7 +35,7 @@ public class DefGroup extends Command implements PluginIdentifiableCommand {
         PPGroup group = this.plugin.getGroup(args[0]);
 
         if (group == null) {
-            sender.sendMessage(TextFormat.RED.toString() + PurePerms.MAIN_PREFIX + " " +
+            sender.sendMessage(TextFormat.RED + PurePerms.MAIN_PREFIX + " " +
                 this.plugin.getMessage("cmds.defgroup.messages.group_not_exist", new String[]{args[0]}));
             return true;
         }
@@ -46,7 +46,7 @@ public class DefGroup extends Command implements PluginIdentifiableCommand {
             Level level = this.plugin.getServer().getLevelByName(args[1]);
 
             if (level == null) {
-                sender.sendMessage(TextFormat.RED.toString() + PurePerms.MAIN_PREFIX + " " +
+                sender.sendMessage(TextFormat.RED + PurePerms.MAIN_PREFIX + " " +
                     this.plugin.getMessage("cmds.defgroup.messages.level_not_exist", new String[]{args[1]}));
                 return true;
             }
@@ -56,7 +56,7 @@ public class DefGroup extends Command implements PluginIdentifiableCommand {
 
         this.plugin.setDefaultGroup(group, levelName);
 
-        sender.sendMessage(TextFormat.GREEN.toString() + PurePerms.MAIN_PREFIX + " " +
+        sender.sendMessage(TextFormat.GREEN + PurePerms.MAIN_PREFIX + " " +
             this.plugin.getMessage("cmds.defgroup.messages.defgroup_successfully", new String[]{args[0]}));
         return true;
     }
