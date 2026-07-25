@@ -45,7 +45,7 @@ public class GrpInfo extends Command implements PluginIdentifiableCommand {
 
         String levelName = null;
 
-        if (args.length == 2) {
+        if (args != null) {
             Level level = this.plugin.getServer().getWorldManager().getWorldByName(args[1]);
 
             if (level == null) {
