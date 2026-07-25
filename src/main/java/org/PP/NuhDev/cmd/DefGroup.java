@@ -42,7 +42,7 @@ public class DefGroup extends Command implements PluginIdentifiableCommand {
 
         String levelName = null;
 
-        if (args.length > 1) {
+        if (args != null) {
             Level level = this.plugin.getServer().getLevelByName(args[1]);
 
             if (level == null) {
