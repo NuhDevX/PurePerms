@@ -50,7 +50,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>ItemBlacklist</finalName>
+        <finalName>PurePerms</finalName>
         <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
         <plugins>
             <plugin>
